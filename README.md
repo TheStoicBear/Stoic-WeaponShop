@@ -27,4 +27,4 @@ You can customize the weapon categories, weapons, and prices by modifying the `c
 
 ## Dependencies
 
-- This resource relies on a [oxlib](https://github.com/overextended/ox_lib) & [NDCore](https://github.com/ND-Framework/ND_Core)
+- This resource relies on a [oxlib](https://github.com/overextended/ox_lib) & [NAT's Framework](https://store.nat2k15.xyz/)
