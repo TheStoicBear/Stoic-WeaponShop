@@ -3,7 +3,6 @@
 
 Stoic-WeaponShop is a custom weapon shop resource for FiveM servers. It allows players to browse and purchase various weapons from different categories within the game.
 
-# Duely not there is more to develop. I wanted to get this out ASAP to show that I am working on it.
 
 
 ## Features
