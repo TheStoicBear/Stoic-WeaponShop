@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ammu-Nation Cooldown</title>
+    <style>
+      @font-face {
+        font-family: 'Pricedown';
+        src: url('pricedown bl.otf') format('opentype');
+        /* Adjust path if the font is in a subfolder */
+      }
+
+      body {
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        font-family: 'Pricedown', sans-serif;
+        /* Use Pricedown as the primary font */
+        color: white;
+        background-color: transparent;
+      }
+
+      #cooldownContainer {
+        position: absolute;
+        top: 0%;
+        /* Vertically center */
+        left: 0%;
+        /* Horizontally center */
+        transform: translate(-50%, -50%);
+        /* Adjust both axes */
+        text-align: center;
+        color: #fff;
+        width: 300px;
+        /* Width remains unchanged */
+      }
+
+      #banner img {
+        width: 300px;
+        /* Adjusted image width */
+      }
+
+      #cooldownText p {
+        font-size: 16px;
+        /* Reduced font size */
+        margin: 8px 0;
+        /* Reduced margin */
+        background-color: rgba(0, 0, 0, 0.7);
+        padding: 8px;
+        /* Reduced padding */
+        border-radius: 5px;
+        font-family: 'Pricedown', sans-serif;
+        /* Ensure shop message uses Pricedown */
+      }
+
+      #cooldownDisplay,
+      #shopPrompt {
+        position: absolute;
+        color: white;
+        /* Change to whatever color you prefer */
+        background: rgba(0, 0, 0, 0.5);
+        /* Semi-transparent background */
+        border-radius: 5px;
+        padding: 8px;
+        /* Reduced padding */
+        font-size: 16px;
+        /* Reduced font size */
+        font-family: 'Pricedown', sans-serif;
+        /* Ensure Pricedown font for both cooldown and shop prompt */
+        display: none;
+        /* Hidden by default */
+      }
+
+      #shopMessage {
+        font-family: 'Pricedown', sans-serif;
+        /* Ensure shop message uses Pricedown */
+      }
+    </style>
+  </head>
+  <body>
+    <div id="cooldownContainer" style="display: none;">
+      <div id="banner">
+        <img src="banner.png" alt="Ammu-Nation" />
+      </div>
+      <div id="cooldownText">
+        <p id="cooldownMessage">NPC will respawn in <span id="cooldownTime">00:00</span>
+        </p>
+      </div>
+    </div>
+    <div id="shopPrompt" style="display: none;">
+      <div id="banner">
+        <img src="banner.png" alt="Ammu-Nation" />
+      </div>
+      <p id="shopMessage"></p>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
