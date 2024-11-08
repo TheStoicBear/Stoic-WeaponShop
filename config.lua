@@ -3,6 +3,8 @@ Config = {}
 -- Reward range for NPC robbery
 Config.RewardMin = 500
 Config.RewardMax = 50000
+-- Toggle to enable or disable the robbery functionality
+Config.EnableRobbery = true
 
 Config.NPCs = {
     { x = -3230.99, y = 1305.71, z = 4.54, h = 90.0 },
