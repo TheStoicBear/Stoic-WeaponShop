@@ -9,6 +9,9 @@ local currentShopPromptNpc = nil
 -- Track the cooldown visibility for each NPC
 local cooldownVisible = {}
 
+-- Config to enable or disable robbery
+Config.EnableRobbery = true
+
 -- Function to create a blip for the NPC
 function createBlipForNPC(npc, index)
     local blip = AddBlipForEntity(npc)
@@ -73,9 +76,11 @@ Citizen.CreateThread(function()
                 npcData.alive = false
                 DeleteEntity(npc)
 
-                -- Trigger reward and dispatch events
-                TriggerServerEvent("npcRobbed", i)
-                TriggerServerEvent("911Dispatch", npcData.coords)
+                if Config.EnableRobbery then
+                    -- Trigger reward and dispatch events
+                    TriggerServerEvent("npcRobbed", i)
+                    TriggerServerEvent("911Dispatch", npcData.coords)
+                end
 
                 -- Set respawn time for the NPC
                 respawnTimes[i] = GetGameTimer() + math.random(300000, 600000)
@@ -197,13 +202,13 @@ Citizen.CreateThread(function()
             end
 
             -- NPC fights back if player aims at them
-            if IsPlayerFreeAimingAtEntity(PlayerId(), closestNpc.npc) then
+            if Config.EnableRobbery and IsPlayerFreeAimingAtEntity(PlayerId(), closestNpc.npc) then
                 TaskCombatPed(closestNpc.npc, PlayerPedId(), 0, 16) -- NPC fights back
                 print("NPC is fighting back!") -- Debug print
             end
             
             -- Allow the player to kill the NPC
-            if IsControlJustPressed(1, 24) then -- Change this to your desired key for killing the NPC (24 is for "R")
+            if Config.EnableRobbery and IsControlJustPressed(1, 24) then -- Change this to your desired key for killing the NPC (24 is for "R")
                 if closestDistance < 2.0 then -- Check if the player is close enough
                     -- Kill the NPC
                     SetEntityHealth(closestNpc.npc, 0) -- Set NPC health to 0 to kill
