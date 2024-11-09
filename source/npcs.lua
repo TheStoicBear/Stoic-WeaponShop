@@ -9,9 +9,6 @@ local currentShopPromptNpc = nil
 -- Track the cooldown visibility for each NPC
 local cooldownVisible = {}
 
--- Config to enable or disable robbery
-Config.EnableRobbery = true
-
 -- Function to create a blip for the NPC
 function createBlipForNPC(npc, index)
     local blip = AddBlipForEntity(npc)
